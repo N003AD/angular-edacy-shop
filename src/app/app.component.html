@@ -1,7 +1,7 @@
 <div class="grid-container">
   <div class="grid-item">
-    <div class="product-card">
-  <img src="{{produit.image}}" alt="${product.name}">
+    <div [class.product-card]="true" [style.font-size.px]="20" style="font-size: 10px;">
+  <img [src]="produit.image" [alt]="produit.name" title="product">
   <div class="product-card-body">
     <h3 class="product-card-title">
       {{produit.name}}
@@ -10,7 +10,10 @@
 
     </p>
 
-    <span class="promo-badge"> {{produit.promo ? produit.promoVal : ""}} </span>
+    <!-- <span class="promo-badge"> {{produit.promo ? produit.promoVal : ""}} </span> -->
+    <span *ngIf="isPromo(produit);else noPromo" class="promo-badge"> {{produit.promo ? produit.promoVal : ""}} </span>
+    <ng-template #noPromo></ng-template>
+
     <span class="product-card-price">  {{produit.price}}</span>
     <div>
 
@@ -35,3 +38,13 @@
     test 1
   </div>
 </div>
+
+<!--
+Si n'est pas égal à false on met
+ if(produit.promo=!false){
+  <span *ngIf="produit.promo" class="promo-badge">Promo:{{produit.promoVal}}% off </span>
+}
+Si c'est égal on mets rien du tout
+-->
+
+
