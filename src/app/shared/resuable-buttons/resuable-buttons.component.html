@@ -1,0 +1,13 @@
+<ng-content select=".right"></ng-content>
+
+<!-- ngClass est un objet qui prend un attibut suivi d'ub boulean -->
+<button [ngClass]="{
+  'principal': isPrincipal,
+  'secondaire': isSecondary
+}"
+ (click)="clicked()">
+  Notre boutton est là
+</button>
+<ng-content select=".left"></ng-content>
+
+

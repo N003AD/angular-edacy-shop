@@ -1,0 +1,26 @@
+.principal{
+  background-color: rgb(209, 209, 59);
+  margin: 8px;
+  padding: 8px;
+  font-weight: 800;
+  text-align: center;
+ }
+
+ .secondaire{
+  background-color: rgba(38, 39, 37);
+  color: white;
+  margin: 8px;
+  padding: 8px;
+  font-weight: 800;
+  text-align: center;
+  border-radius: 15px;
+ }
+
+
+ .left{
+  background-color: green
+ }
+
+ .right{
+  background-color: red
+ }

@@ -1,41 +1,36 @@
+// On va lui passer une liaison de propriété
+<app-search [placeholderMessage]="message" (searched)="filterProducts($event)" >
+</app-search>
 <div class="grid-container">
-  <div class="grid-item">
+  <div class="grid-item" *ngFor="let prod of produits;">
     <div [class.product-card]="true" [style.font-size.px]="20" style="font-size: 10px;">
-  <img [src]="produit.image" [alt]="produit.name" title="product">
+  <img [src]="prod.image" [alt]="prod.name" title="product">
   <div class="product-card-body">
     <h3 class="product-card-title">
-      {{produit.name}}
+      {{prod.name}}
     </h3>
     <p class="product-card-description">
 
     </p>
 
     <!-- <span class="promo-badge"> {{produit.promo ? produit.promoVal : ""}} </span> -->
-    <span *ngIf="isPromo(produit);else noPromo" class="promo-badge"> {{produit.promo ? produit.promoVal : ""}} </span>
-    <ng-template #noPromo></ng-template>
-
-    <span class="product-card-price">  {{produit.price}}</span>
-    <div>
-
-    </div>
+    <span *ngIf="isPromo(prod);else noPromo" class="promo-badge">Promo: {{prod.promoVal }} </span>
+    <ng-template #noPromo>
+      <span>No Promo</span>
+    </ng-template>
+    <span class="product-card-price">{{prod.price}}</span>
+    <!-- <button (click)="addToCard(prod)">Ajouter</button> //Capturer l'élement clique  -->
+    <!-- <button (click)="addToCard($event)">Ajouter</button> -->
+    <app-resuable-buttons [isPrincipal]="true" (buttonClicked)="addToCard(prod)">
+        <div class="left">
+          *Offre soumise à une condition
+        </div>
+        <div class="right">
+          *Offre soumise à une condition
+        </div>
+    </app-resuable-buttons>
   </div>
 </div>
-
-  </div>
-    <div class="grid-item">
-    test 1
-  </div>
-    <div class="grid-item">
-    test 1
-  </div>
-    <div class="grid-item">
-    test 1
-  </div>
-    <div class="grid-item">
-    test 1
-  </div>
-    <div class="grid-item">
-    test 1
   </div>
 </div>
 
